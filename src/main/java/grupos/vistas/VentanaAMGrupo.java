@@ -102,7 +102,7 @@ public class VentanaAMGrupo extends JDialog {
         Grupo grupo = new Grupo(nombre, descripcion);        
         grupos.add(grupo);
         for(Grupo g : grupos)
-            g.mostrar();
+            g.mostrarG();
     }//GEN-LAST:event_btnGuardarClic
 
 

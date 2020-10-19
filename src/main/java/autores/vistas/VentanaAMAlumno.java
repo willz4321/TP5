@@ -135,9 +135,9 @@ public class VentanaAMAlumno extends JDialog {
             dni = Integer.parseInt(this.txtDNI.getText().trim());
         String apellidos = this.txtApellidos.getText().trim();
         String nombres = this.txtNombres.getText().trim();
-        String cx = this.txtCX.getText().trim();
+        int cx = Integer.parseInt(this.txtCX.getText().trim());
         String clave = new String(this.passClave.getPassword());
-        Alumno alumno = new Alumno(dni, apellidos, nombres, clave, cx);
+        Alumno alumno = new Alumno(nombres, apellidos, dni, clave, cx);
         this.alumnos.add(alumno);
         for(Alumno a : this.alumnos)
             a.mostrar();

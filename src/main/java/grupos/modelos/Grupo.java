@@ -36,8 +36,8 @@ public class Grupo {
         this.descripcion = descripcion;
     }
 
-    public void mostrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mostrarG() {
+        System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion);
     }
     
     //Aqui voy a definir los metodos equals y hashcode para la clase grupo

@@ -8,6 +8,7 @@ tipos\vistas\VentanaATipo.class
 idiomas\vistas\VentanaAIdioma$1.class
 publicaciones\modelos\Publicacion.class
 lugares\vistas\VentanaALugar$1.class
+autores\modelos\Autor.class
 grupos\vistas\VentanaAMGrupo$1.class
 idiomas\vistas\VentanaAIdioma.class
 autores\modelos\Cargo.class

@@ -71,11 +71,11 @@ public class ControladorPrincipal {
         PalabraClave unapalabraclave4=new PalabraClave("palabraclave4");
         PalabraClave unapalabraclave5=new PalabraClave("palabraclave5");
         //Clase Alumno
-        Alumno unalumno1 =new Alumno("ariel","ponce",40088805,"clave1","1602230");
-        Alumno unalumno2 =new Alumno("rocio","toledo",40088235,"clave2","1602233");
-        Alumno unalumno3 =new Alumno("pablo","ponce",40088805,"clave3","1602234");
-        Alumno unalumno4 =new Alumno("diego","ponce",40088805,"clave4","1602235");
-        Alumno unalumno5 =new Alumno("gladys","ponce",40088805,"clave5","1602236");
+        Alumno unalumno1 =new Alumno("ariel","ponce",40028805,"clave1",1602230);
+        Alumno unalumno2 =new Alumno("rocio","toledo",40088235,"clave2",1602230);
+        Alumno unalumno3 =new Alumno("pablo","ponce",40018805,"clave3",1602234);
+        Alumno unalumno4 =new Alumno("diego","ponce",40088805,"clave4",1602235);
+        Alumno unalumno5 =new Alumno("gladys","ponce",40088805,"clave5",1602236);
         //Clase profesor 
         Profesor unprofesor1=new Profesor(1233321,"nombre1","apellido1","clave1",Cargo.TITULAR);
         Profesor unprofesor2=new Profesor(1233322,"nombre2","apellido2","clave2",Cargo.ADG);
@@ -83,11 +83,11 @@ public class ControladorPrincipal {
         Profesor unprofesor4=new Profesor(1233324,"nombre4","apellido4","clave4",Cargo.ASOCIADO );
         Profesor unprofesor5=new Profesor(1233325,"nombre5","apellido5","clave5",Cargo.JTP);
         
-        MiembroEnGrupo miembroengrupo1 =new MiembroEnGrupo(ungrupo1,unprofesor1,Rol.ADMINISTRADOR );
-        MiembroEnGrupo miembroengrupo2=new MiembroEnGrupo(ungrupo2,unprofesor2,Rol.COLABORADOR); 
-        MiembroEnGrupo miembroengrupo3=new MiembroEnGrupo(ungrupo4,unprofesor4,Rol.COLABORADOR); 
-        MiembroEnGrupo miembroengrupo4=new MiembroEnGrupo(ungrupo3,unprofesor3,Rol.COLABORADOR); 
-        MiembroEnGrupo miembroengrupo5=new MiembroEnGrupo(ungrupo5,unprofesor5,Rol.COLABORADOR); 
+        MiembroEnGrupo miembroengrupo1 =new MiembroEnGrupo(ungrupo1,unprofesor1,Rol.ADMINISTRADOR,unalumno1 );
+        MiembroEnGrupo miembroengrupo2=new MiembroEnGrupo(ungrupo2,unprofesor2,Rol.COLABORADOR,unalumno2); 
+        MiembroEnGrupo miembroengrupo3=new MiembroEnGrupo(ungrupo4,unprofesor4,Rol.COLABORADOR,unalumno3); 
+        MiembroEnGrupo miembroengrupo4=new MiembroEnGrupo(ungrupo3,unprofesor3,Rol.COLABORADOR,unalumno4); 
+        MiembroEnGrupo miembroengrupo5=new MiembroEnGrupo(ungrupo5,unprofesor5,Rol.COLABORADOR,unalumno5); 
         
         
         
@@ -108,6 +108,8 @@ public class ControladorPrincipal {
         vectorprofesor = new ArrayList<>();
         ArrayList<Alumno> vectoralumno;
         vectoralumno = new ArrayList<>();
+        ArrayList<MiembroEnGrupo> vectorMiembros;
+        vectorMiembros = new ArrayList<>();
         //punto 8 agrego el vector publicaciones
         ArrayList<Publicacion>vectorpublicaciones;
         vectorpublicaciones =new ArrayList<>();
@@ -231,6 +233,17 @@ public class ControladorPrincipal {
            if(!vectorpublicaciones.contains(publicacion5))
          vectorpublicaciones.add(publicacion5);
            
+           //arraylist de Miembros
+           //aca pondre la verificacion de la clase miembros para no colocar 2 objetos iguales 
+           vectorMiembros.add(miembroengrupo1);
+        if(!vectorMiembros.contains(miembroengrupo2))
+        vectorMiembros.add(miembroengrupo2);
+        if(!vectorMiembros.contains(miembroengrupo3))
+        vectorMiembros.add(miembroengrupo3);
+        if(!vectorMiembros.contains(miembroengrupo4))
+        vectorMiembros.add(miembroengrupo4);
+        if(!vectorMiembros.contains(miembroengrupo5))
+        vectorMiembros.add(miembroengrupo5);
         
         
              
@@ -241,53 +254,59 @@ public class ControladorPrincipal {
 //         unlugar5.asignarNombre("cataratas");
 //         
         
-        //Recorrido de los arraylist y muestra por pantalla
-            //vectoralumno
+//        Recorrido de los arraylist y muestra por pantalla
+//            vectoralumno
         for(Alumno r: vectoralumno)
         {
-            System.out.println("Los atributos son:" +r.verApellidos()+" "+ " "+r.verClave()+" "+" "+r.verCx()+" "+" "+r.verNombres());
+            r.mostrar();
                     }
-//           //vectorprofesor
+//           vectorprofesor
            for(Profesor r: vectorprofesor)
         {
-            System.out.println("Los atributos son:" +r.verApellidos()+" "+ " "+r.verClave()+" "+" "+r.verCargo()+" "+" "+r.verNombres());
+            r.MostrarDatos();
                     }
-           //vectortipo
-            for(Tipo r: vectortipo)
-        {
-            System.out.println("Los atributos son:" +r.verNombre());
-        }
+           
+           //vectorMiembros
+           for(MiembroEnGrupo vec: vectorMiembros){
+              
+               vec.mostrarmiembroengrupo();
+           }
+//           vectortipo
+//            for(Tipo r: vectortipo)
+//        {
+//            System.out.println("Los atributos son:" +r.verNombre());
+//        }
 //            //vectorpalabraclave
-            for(PalabraClave r: vectorpalabraclave)
-        {
-            System.out.println("Los atributos son: "+r.verNombre());
-        }
+//            for(PalabraClave r: vectorpalabraclave)
+//        {
+//            System.out.println("Los atributos son: "+r.verNombre());
+//        }
 //            //vectoridioma
-            for(Idioma r: vectoridioma)
-        {
-            System.out.println("Los atributos son:" +r.verNombre());
-        }
+//            for(Idioma r: vectoridioma)
+//        {
+//            System.out.println("Los atributos son:" +r.verNombre());
+//        }
 //             //vectorlugar
-            for(Lugar r: vectorlugar)
-        {
-            System.out.println("Los atributos son:"+r.verNombre());
-        }
+//            for(Lugar r: vectorlugar)
+//        {
+//            System.out.println("Los atributos son:"+r.verNombre());
+//        }
 //            //vectorgrupo
-         for(Grupo r: vectorgrupo)
-        {
-            System.out.println("Los atributos son:"+r.verDescripcion()+" "+" "+r.verNombre());
-        }    
+//         for(Grupo r: vectorgrupo)
+//        {
+//            System.out.println("Los atributos son:"+r.verDescripcion()+" "+" "+r.verNombre());
+//        }    
 //         
           
          // aqui deharemos que publicacion se muestre 
          
-         System.out.println("\n");
-         System.out.println("Aqui mostraremos publicacion\n");
-         
-         for(Publicacion a: vectorpublicaciones)
-         {
-             a.mostrartodo();
-         }
+//         System.out.println("\n");
+//         System.out.println("Aqui mostraremos publicacion\n");
+//         
+//         for(Publicacion a: vectorpublicaciones)
+//         {
+//             a.mostrartodo();
+//         }
 //         Publicacion publicacion2=new Publicacion("Tesisdrone2021",LocalDate.of(2020,Month.OCTOBER,10),"enlace1","resumen1",unidioma1,untipo1,unlugar1,vectorpalabraclave,miembroengrupo2));
 //         
 //         Publicacion publicacion2=new Publicacion("Tesisdrone2021",LocalDate.of(2020,Month.OCTOBER,10),"enlace1","resumen1",unidioma1,untipo1,unlugar1,vectorpalabraclave,miembroengrupo2));
@@ -338,13 +357,10 @@ public class ControladorPrincipal {
 //ventanaprofesor.setLocationRelativeTo(null);
 //ventanaprofesor.setVisible(true);
 //       
-       
-       
+          
+            
        System.out.println("hola mundo");
-       
-       
-       
-         
+ 
           
          
           
@@ -352,7 +368,7 @@ public class ControladorPrincipal {
           
           
          
-    }
+   }
         
         
         
