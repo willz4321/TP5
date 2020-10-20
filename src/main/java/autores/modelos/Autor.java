@@ -24,20 +24,23 @@ public abstract class Autor {
     {
       System.out.println("LOS DATOS SON: \n"+ "["+DNI+"] "+apellidos+","+nombres);
       
+      for(MiembroEnGrupo mi: grupos){
+          System.out.println("Grupo: "+mi.getGrupos().verNombre()+"Rol: "+mi.getRol());
+      }
     }
     
     public ArrayList<MiembroEnGrupo> verGrupos(){
            return grupos;
        }
 
-    public void AgregrarGrupos(Grupo grupo,Rol rol){
+    public void agregarGrupo(Grupo grupo,Rol rol){
        
      MiembroEnGrupo MiembroAutor= new MiembroEnGrupo(this,grupo,rol); 
      
      if(!this.grupos.contains(MiembroAutor))
          this.grupos.add(MiembroAutor);
-     if(!grupo.contains(MiembroAutor))
-         grupo.agregarMiembro(this,rol);
+//     if(!grupo.verMiembros().contains(MiembroAutor))
+//         grupo.agregarMiembro(this,rol);
     }
     
 public void QuitarGrupo(Grupo grupo){
@@ -48,6 +51,20 @@ public void QuitarGrupo(Grupo grupo){
              grupo.quitarMiembro(this);
       
     }
+
+  public boolean esSuperAdministrador(){
+      
+    boolean i=false;
+     
+   for(MiembroEnGrupo miemb: grupos){ 
+    
+       if(miemb.getGrupos().verNombre().equalsIgnoreCase("Super Administradores"))
+            i=true; 
+     }
+       return i;
+    }
+       
+  
     public int getDNI() {
         return DNI;
     }

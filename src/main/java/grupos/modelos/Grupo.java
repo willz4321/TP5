@@ -78,10 +78,9 @@ public class Grupo {
     
     public boolean esSuperAdministradores()
     {
-        if(this.nombre == "Super Administradores"){
-            return true;
-    }
-        return false;
+        
+            return this.nombre.equalsIgnoreCase("Super Administradores");
+        
     }
         
     
@@ -121,6 +120,10 @@ public class Grupo {
             return false;
         }
         return true;
+    }
+
+    public boolean contains(MiembroEnGrupo MiembroAutor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   
