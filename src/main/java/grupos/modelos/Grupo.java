@@ -42,16 +42,20 @@ public class Grupo {
     }
 
     public void mostrarG() {
-        System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion);
+        System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion+"\n");
+        for(MiembroEnGrupo m: miembros)
+            m.getRol();
     }
     //creo el arraylist de MiembroEnGrupo
     private ArrayList<MiembroEnGrupo>miembros=new ArrayList<>();
     //aqui muestro el conjunto de los objetos de miembrosengrupo
-    public void verMiembros(){
-        for(MiembroEnGrupo m: miembros)          
-        m.mostrarmiembroengrupo();
+//    public void verMiembros(){
+//        for(MiembroEnGrupo m: miembros)          
+//        m.mostrarmiembroengrupo();
+//    }
+    public ArrayList<MiembroEnGrupo> verMiembros(){
+            return miembros;
     }
-    
     //aqui creo el metodo agregarMiembros(Autor autor,Rol rol)
     
     public void agregarMiembro(Autor autor,Rol rol)
@@ -80,8 +84,6 @@ public class Grupo {
         return false;
     }
         
-    
-    
     
     public boolean tieneMiembros()
     {
