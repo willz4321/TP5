@@ -56,12 +56,14 @@ public class Alumno extends Autor{
         final Alumno other = (Alumno) obj;
         
         super.equals(obj);
-        if(super.equals(obj)==false)
+        if(!super.equals(obj))
         {
-             if (!Objects.equals(this.Cx, other.Cx))
-             {
-                return false;
+             if(obj instanceof Alumno) {
+                return Objects.equals(this.Cx, ((Alumno)obj).verCx());
              }
+             else
+                return false;
+                 
         }
        
         return true;

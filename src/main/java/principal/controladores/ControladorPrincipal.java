@@ -31,8 +31,8 @@ public class ControladorPrincipal {
     
     //<editor-fold defaultstate="collapsed" desc="Sin intefaz gráfica"> 
         ArrayList<Grupo> grupos = new ArrayList<>();
-//        ArrayList<Alumno> alumnos = new ArrayList<>();
-//        ArrayList<Profesor> profesores = new ArrayList<>();
+        ArrayList<Alumno> alumnos = new ArrayList<>();
+        ArrayList<Profesor> profesores = new ArrayList<>();
         ArrayList<Autor> autores = new ArrayList<>();
         ArrayList<Tipo> tipos = new ArrayList<>();
         ArrayList<Lugar> lugares = new ArrayList<>();
@@ -91,14 +91,14 @@ public class ControladorPrincipal {
         Autor profesor2 = new Profesor(20, "Apellido20", "Nombre20", "Clave20", Cargo.ASOCIADO);
         Autor profesor3 = new Profesor(30, "Apellido30", "Nombre30", "Clave30", Cargo.ADJUNTO);
         Autor profesor4 = new Profesor(40, "Apellido40", "Nombre40", "Clave40", Cargo.JTP);
-        Autor profesor5 = new Profesor(50, "Apellido50", "Nombre50", "Clave50", Cargo.ADG);
-        Autor profesor6 = new Profesor(10, "Apellido60", "Nombre60", "Clave60", Cargo.ADG); 
+        Autor profesor5 = new Profesor(15, "Apellido50", "Nombre50", "Clave50", Cargo.ADG);
+        Autor profesor6 = new Profesor(2, "Apellido60", "Nombre60", "Clave60", Cargo.ADG); 
         //dni repetido con otro profesor
         Autor profesor7 = new Profesor(1, "Apellido70", "Nombre70", "Clave70", Cargo.ADG); 
         //dni repetido con otro alumno
-        Autor alumno7 = new Alumno(50, "Apellido7", "Nombre7", "Clave7", 7);
+        Autor alumno7 = new Alumno(15, "Apellido7", "Nombre7", "Clave7", 7);
         //dni repetido con un profesor
-        Autor alumno8 = new Alumno(8, "Apellido8", "Nombre8", "Clave8", 8);
+        Autor alumno8 = new Alumno(8, "Apellido8", "Nombre8", "Clave8", 3);
         //cx repetido con un alumno
         
         if (!autores.contains(profesor1))
@@ -134,7 +134,7 @@ public class ControladorPrincipal {
         grupo1.agregarMiembro(profesor1, Rol.ADMINISTRADOR);
         grupo1.agregarMiembro(profesor1, Rol.COLABORADOR); //autor repetido
         grupo1.agregarMiembro(alumno1, Rol.COLABORADOR);
-        grupo1.mostrar();
+        grupo1.mostrarG();
         
         /*Tomar 1 de los 2 autores que se asignó al grupo anterior y 
         agregarlo a otro grupo distinto. 
@@ -145,8 +145,8 @@ public class ControladorPrincipal {
 
         profesor1.agregarGrupo(grupo2, Rol.COLABORADOR);
         profesor1.agregarGrupo(grupo2, Rol.ADMINISTRADOR); //grupo repetido
-        profesor1.mostrar();
-        profesor2.mostrar();
+        profesor1.MostrarDatos(); 
+        profesor2.MostrarDatos();
         
         /*
         Tomar el grupo al que se le agregaron los 2 autores como miembros, 
@@ -154,7 +154,7 @@ public class ControladorPrincipal {
         ya no es miembro del grupo.
         */
         grupo1.quitarMiembro(profesor1);
-        grupo1.mostrar();
+        grupo1.mostrarG();
 
         /*
         Crear un nuevo grupo para los super administradores. 
@@ -167,7 +167,7 @@ public class ControladorPrincipal {
         if (!grupos.contains(grupo7))
             grupos.add(grupo7);
         grupo7.agregarMiembro(profesor1, Rol.COLABORADOR);
-        grupo7.mostrar();
+        grupo7.mostrarG();
 
         /*
         Verificar que el último grupo creado es de super administradores
@@ -355,7 +355,7 @@ public class ControladorPrincipal {
             publicaciones.add(publicacion5);
         if (!publicaciones.contains(publicacion6))
             publicaciones.add(publicacion6);
-      
+//      
         for(Publicacion p : publicaciones) {
             p.mostrartodo();
             System.out.println();
