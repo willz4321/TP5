@@ -61,7 +61,7 @@ public class Grupo {
             this.miembros.add(miembroengrupo);
                              
     }
-    
+    //zqui se creo el metodo quitarMiembros(Autor miembro)
     public void quitarMiembro(Autor miembro)
     {
         MiembroEnGrupo unMiembro=new MiembroEnGrupo(miembro,null,null);
@@ -74,17 +74,24 @@ public class Grupo {
     
     public boolean esSuperAdministradores()
     {
-        for(Grupo  g: grupos)
-        {
-            
-        }
+        if(this.nombre == "Super Administradores"){
+            return true;
+    }
         return false;
     }
+        
+    
+    
     
     public boolean tieneMiembros()
     {
-        
-    }
+     if(!this.miembros.isEmpty()){
+         return true;
+     }
+         return false;
+    }     
+    
+    
     
     
     //Aqui voy a definir los metodos equals y hashcode para la clase grupo
@@ -113,6 +120,8 @@ public class Grupo {
         }
         return true;
     }
+
+  
 
   
     
