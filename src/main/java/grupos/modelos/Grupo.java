@@ -5,6 +5,9 @@
  */
 package grupos.modelos;
 
+import autores.modelos.Autor;
+import autores.modelos.Rol;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,7 +17,7 @@ import java.util.Objects;
 public class Grupo {
     private String nombre;
     private String descripcion;
-    private MiembroEnGrupo miembrosengrupo;
+    private MiembroEnGrupo miembroengrupo;
     
 //aqui se agrega el constructor
     public Grupo(String nombre, String descripcion) {
@@ -41,17 +44,55 @@ public class Grupo {
     public void mostrarG() {
         System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion);
     }
-    
+    //creo el arraylist de MiembroEnGrupo
+    private ArrayList<MiembroEnGrupo>miembros=new ArrayList<>();
+    //aqui muestro el conjunto de los objetos de miembrosengrupo
     public void verMiembros(){
-       for()
+        for(MiembroEnGrupo m: miembros)          
+        m.mostrarmiembroengrupo();
     }
+    
+    //aqui creo el metodo agregarMiembros(Autor autor,Rol rol)
+    
+    public void agregarMiembro(Autor autor,Rol rol)
+    {
+        MiembroEnGrupo miembroengrupo=new MiembroEnGrupo(autor,null,rol);
+        if(!this.miembros.contains(miembroengrupo))
+            this.miembros.add(miembroengrupo);
+                             
+    }
+    
+    public void quitarMiembro(Autor miembro)
+    {
+        MiembroEnGrupo unMiembro=new MiembroEnGrupo(miembro,null,null);
+        if(this.miembros.contains(unMiembro))
+        {
+            miembros.remove(miembros.indexOf(unMiembro));
+        }
+        
+    }
+    
+    public boolean esSuperAdministradores()
+    {
+        for(Grupo  g: grupos)
+        {
+            
+        }
+        return false;
+    }
+    
+    public boolean tieneMiembros()
+    {
+        
+    }
+    
     
     //Aqui voy a definir los metodos equals y hashcode para la clase grupo
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.nombre);
+        hash = 23 * hash + Objects.hashCode(this.miembros);
         return hash;
     }
 
@@ -67,12 +108,12 @@ public class Grupo {
             return false;
         }
         final Grupo other = (Grupo) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
+        if (!Objects.equals(this.miembros, other.miembros)) {
             return false;
         }
         return true;
     }
-    
-    
+
+  
     
 }
