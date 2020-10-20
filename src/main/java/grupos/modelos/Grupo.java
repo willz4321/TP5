@@ -14,6 +14,8 @@ import java.util.Objects;
 public class Grupo {
     private String nombre;
     private String descripcion;
+    private MiembroEnGrupo miembrosengrupo;
+    
 //aqui se agrega el constructor
     public Grupo(String nombre, String descripcion) {
         this.nombre = nombre;
@@ -38,6 +40,10 @@ public class Grupo {
 
     public void mostrarG() {
         System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion);
+    }
+    
+    public void verMiembros(){
+       for()
     }
     
     //Aqui voy a definir los metodos equals y hashcode para la clase grupo

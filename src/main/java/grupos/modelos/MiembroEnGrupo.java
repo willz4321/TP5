@@ -17,17 +17,17 @@ import java.util.Objects;
  */
 public class MiembroEnGrupo {
     private Grupo grupos;
-    private Profesor profesores;
+    private Autor autor;
     private Rol  rol;
-    private Alumno Alumnos;
-    private Autor Autores;
+ 
+                
     //constructor
 
-    public MiembroEnGrupo(Grupo grupos, Profesor profesores, Rol rol,Alumno Alumno) {
+    public MiembroEnGrupo(Autor autor,Grupo grupos , Rol rol) {
+        this.autor=autor;
         this.grupos = grupos;
-        this.profesores = profesores;
         this.rol = rol;
-        this.Alumnos=Alumno;
+        
     }
     
     //metodos get/set
@@ -40,13 +40,7 @@ public class MiembroEnGrupo {
         this.grupos = grupos;
     }
 
-    public Profesor getProfesores() {
-        return profesores;
-    }
-
-    public void setProfesores(Profesor profesores) {
-        this.profesores = profesores;
-    }
+  
 
     public Rol getRol() {
         return rol;
@@ -56,25 +50,27 @@ public class MiembroEnGrupo {
         this.rol = rol;
     }
 
-    public Alumno getAlumnos() {
-        return Alumnos;
+    public Autor getAutor() {
+        return autor;
     }
 
-    public void setAlumnos(Alumno Alumnos) {
-        this.Alumnos = Alumnos;
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
+
+    
     
     public void mostrarmiembroengrupo(){
-       profesores.MostrarDatos();
+       autor.MostrarDatos();
        grupos.verNombre();
-       Alumnos.mostrar();
-       System.out.println("\n Rol: "+rol.name());
+       System.out.println("Rol: "+rol.name());
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.Autores);
+        hash = 71 * hash + Objects.hashCode(this.grupos);
+        hash = 71 * hash + Objects.hashCode(this.autor);
         return hash;
     }
 
@@ -90,15 +86,43 @@ public class MiembroEnGrupo {
             return false;
         }
         final MiembroEnGrupo other = (MiembroEnGrupo) obj;
-       super.equals(obj); 
-        return super.equals(obj) != false;
+        if (!Objects.equals(this.grupos, other.grupos)) {
+            return false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return true;
     }
 
+    
+}
+
+
+    
+        
+        
+
+    
+    
+    
+
+  
+   
+
+    
+    
+   
+    
+           
   
     
+
+ 
     
     
-  }
+    
+  
     
     
     

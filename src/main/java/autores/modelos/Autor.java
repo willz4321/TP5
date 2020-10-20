@@ -52,10 +52,35 @@ public abstract class Autor {
         this.Clave = Clave;
     }
 
+//    @Override
+//    public int hashCode() {
+//        int hash = 3;
+//        hash = 23 * hash + this.DNI;
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (this.getClass().getSuperclass() != obj.getClass().getSuperclass()) {
+//            return false;
+//        }
+//        final Autor other = (Autor) obj;
+//        if (this.DNI != other.DNI) {
+//            return false;
+//        }
+//        return true;
+//    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + this.DNI;
+        int hash = 7;
+        hash = 83 * hash + this.DNI;
         return hash;
     }
 
@@ -67,7 +92,7 @@ public abstract class Autor {
         if (obj == null) {
             return false;
         }
-        if (this.getClass().getSuperclass() != obj.getClass().getSuperclass()) {
+        if (getClass().getSuperclass() != obj.getClass().getSuperclass()) {
             return false;
         }
         final Autor other = (Autor) obj;
@@ -76,6 +101,7 @@ public abstract class Autor {
         }
         return true;
     }
+    
     
     
 }

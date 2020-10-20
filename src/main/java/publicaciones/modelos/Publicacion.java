@@ -33,7 +33,7 @@ public class Publicacion {
    
    //constructor 
 
-    public Publicacion(String titulo, LocalDate fechaPublicacion, String enlace, String resumen, Idioma idiomas, Tipo tipos, Lugar lugares, ArrayList<PalabraClave> vectorpalabraclave, MiembroEnGrupo miembroengrupo) {
+    public Publicacion(String titulo,MiembroEnGrupo miembroengrupo, LocalDate fechaPublicacion,Tipo tipos,Idioma idiomas,Lugar lugares,ArrayList<PalabraClave> vectorpalabraclave, String enlace, String resumen ) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.enlace = enlace;

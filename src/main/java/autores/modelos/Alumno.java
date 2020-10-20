@@ -15,7 +15,7 @@ public class Alumno extends Autor{
    
     private int Cx;
 //aqui se agrega el constructor
-    public Alumno(String nombres, String apellidos, int dni, String Clave, int Cx) {
+    public Alumno(int dni, String apellidos, String nombres, String Clave, int Cx) {
         
         super(dni, apellidos, nombres, Clave);
         this.Cx = Cx;
