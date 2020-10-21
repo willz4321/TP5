@@ -44,7 +44,10 @@ public class Grupo {
     public void mostrarG() {
         System.out.println("el nombre del grupo es: "+nombre+"\n"+"descripcion: "+descripcion+"\n");
         for(MiembroEnGrupo m: miembros)
-            m.getRol();
+        {
+           System.out.println("Miembros: "+m.getAutor().getApellidos()+" "+m.getAutor().getNombres()+"Rol:"+m.getRol());
+        }   
+            
     }
     //creo el arraylist de MiembroEnGrupo
     private ArrayList<MiembroEnGrupo>miembros=new ArrayList<>();
@@ -53,9 +56,10 @@ public class Grupo {
 //        for(MiembroEnGrupo m: miembros)          
 //        m.mostrarmiembroengrupo();
 //    }
-    public ArrayList<MiembroEnGrupo> verMiembros(){
-            return miembros;
-    }
+//    public ArrayList<MiembroEnGrupo> verMiembros(){
+//            return miembros;
+//    }
+
     //aqui creo el metodo agregarMiembros(Autor autor,Rol rol)
     
     public void agregarMiembro(Autor autor,Rol rol)
@@ -91,19 +95,38 @@ public class Grupo {
      }
          return false;
     }     
-    
-    
-    
-    
-    //Aqui voy a definir los metodos equals y hashcode para la clase grupo
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.miembros);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
+    //Aqui voy a definir los metodos equals y hashcode para la clase grupo
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 23 * hash + Objects.hashCode(this.miembros);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Grupo other = (Grupo) obj;
+//        if (!Objects.equals(this.miembros, other.miembros)) {
+//            return false;
+//        }
+//        return true;
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -116,12 +139,13 @@ public class Grupo {
             return false;
         }
         final Grupo other = (Grupo) obj;
-        if (!Objects.equals(this.miembros, other.miembros)) {
+        if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
         return true;
     }
 
+//    }
     public boolean contains(MiembroEnGrupo MiembroAutor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
