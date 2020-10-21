@@ -92,15 +92,15 @@ public class ControladorPrincipal {
         Autor profesor3 = new Profesor(30, "Apellido30", "Nombre30", "Clave30", Cargo.ADJUNTO);
         Autor profesor4 = new Profesor(40, "Apellido40", "Nombre40", "Clave40", Cargo.JTP);
         Autor profesor5 = new Profesor(15, "Apellido50", "Nombre50", "Clave50", Cargo.ADG);
-        Autor profesor6 = new Profesor(2, "Apellido60", "Nombre60", "Clave60", Cargo.ADG); 
+        Autor profesor6 = new Profesor(20, "Apellido60", "Nombre60", "Clave60", Cargo.ADG); 
         //dni repetido con otro profesor
         Autor profesor7 = new Profesor(1, "Apellido70", "Nombre70", "Clave70", Cargo.ADG); 
-        //dni repetido con otro alumno
+//        //dni repetido con otro alumno
         Autor alumno7 = new Alumno(15, "Apellido7", "Nombre7", "Clave7", 7);
-        //dni repetido con un profesor
-        Autor alumno8 = new Alumno(8, "Apellido8", "Nombre8", "Clave8", 3);
-        //cx repetido con un alumno
-        
+//        //dni repetido con un profesor
+//        Autor alumno8 = new Alumno(8, "Apellido8", "Nombre8", "Clave8", 3);
+//        //cx repetido con un alumno
+//        
         if (!autores.contains(profesor1))
             autores.add(profesor1);
         if (!autores.contains(profesor2))
@@ -113,13 +113,13 @@ public class ControladorPrincipal {
             autores.add(profesor5);
         if (!autores.contains(profesor6))
             autores.add(profesor6);
-        
+//        
         if (!autores.contains(profesor7))
             autores.add(profesor7);
         if (!autores.contains(alumno7))
             autores.add(alumno7);
-        if (!autores.contains(alumno8))
-            autores.add(alumno8);
+//        if (!autores.contains(alumno8))
+//            autores.add(alumno8);
         
         
         for(Autor a : autores)
@@ -207,7 +207,7 @@ public class ControladorPrincipal {
             tipos.add(tipo6);
         
         for(Tipo t : tipos)
-            System.out.println(t);
+           t.mostrartipo();
         
         System.out.println("------------------LUGARES------------------");
         Lugar lugar1 = new Lugar("Lugar 1");
@@ -231,7 +231,7 @@ public class ControladorPrincipal {
             lugares.add(lugar6);
         
         for(Lugar l : lugares)
-            System.out.println(l);
+          l.mostrarlugar();
         
         System.out.println("------------------IDIOMAS------------------");
         Idioma idioma1 = new Idioma("Idioma 1");
@@ -255,7 +255,7 @@ public class ControladorPrincipal {
             idiomas.add(idioma6);
         
         for(Idioma i : idiomas)
-            System.out.println(i);        
+          i.mostraridioma();
        
         System.out.println("------------------PALABRAS CLAVE------------------");
         PalabraClave palabraClave1 = new PalabraClave("PalabraClave1");
@@ -279,7 +279,7 @@ public class ControladorPrincipal {
             palabrasClaves.add(palabraClave6);
         
         for(PalabraClave pc : palabrasClaves)
-            System.out.println(pc);  
+           pc.mostrarpalabraclave();  
         
         System.out.println("------------------PUBLICACIONES------------------");
           //PUBLICACION 1
@@ -302,7 +302,7 @@ public class ControladorPrincipal {
              
         Publicacion publicacion2 = new Publicacion("Título 2", mg2, fecha2, tipos.get(1), idiomas.get(1), lugares.get(1), palabras2, "Enlace 2", "Resumen 2");
         //PUBLICACION 2
-
+//
         //PUBLICACION 3
         MiembroEnGrupo mg3 = new MiembroEnGrupo(autores.get(2), grupo2, Rol.COLABORADOR);
         LocalDate fecha3= LocalDate.of(2020, 06, 24);
@@ -314,36 +314,37 @@ public class ControladorPrincipal {
         
         Publicacion publicacion3 = new Publicacion("Título 3",mg3, fecha3 , tipos.get(0), idiomas.get(1), lugares.get(1), palabras3, "Enlace 3", "Resumen 3");
         //PUBLICACION 3
-        
+//        
         //PUBLICACION 4
         MiembroEnGrupo mg4 = new MiembroEnGrupo(autores.get(3), grupos.get(3), Rol.COLABORADOR);
         LocalDate fecha4= LocalDate.of(2020, 03, 15);
         ArrayList<PalabraClave> palabras4=new ArrayList<>();
         palabras4.add(palabrasClaves.get(1));
         
-        Publicacion publicacion4 = new Publicacion("Título 4", mg4, fecha4, tipos.get(4), idiomas.get(2), lugares.get(4),palabras4, "Enlace 4", "Resumen 4");
-        //PUBLICACION 4
-        //PUBLICACION 5
+        Publicacion publicacion4 = new Publicacion("Título 4", mg4, fecha4, tipos.get(4), idiomas.get(2), lugares.get(4), palabras4, "Enlace 4", "Resumen 4");
+//        PUBLICACION 4
+//        PUBLICACION 5
         MiembroEnGrupo mg5 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
         LocalDate fecha5= LocalDate.of(2020, 8, 15);
         ArrayList<PalabraClave> palabras5=new ArrayList<>();
         palabras5.add(palabrasClaves.get(2));
         palabras5.add(palabrasClaves.get(3));
         palabras5.add(palabrasClaves.get(4));
-                
+//        
+//                
         Publicacion publicacion5 = new Publicacion("Título 5", mg5, fecha5, tipos.get(4), idiomas.get(2), lugares.get(4), palabras5, "Enlace 5", "Resumen 5");
         //PUBLICACION 5
-        //PUBLICACION 6
+//        PUBLICACION 6
         MiembroEnGrupo mg6 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
         LocalDate fecha6= LocalDate.of(2020, 8, 18);
         ArrayList<PalabraClave> palabras6=new ArrayList<>();
         palabras6.add(palabrasClaves.get(2));
         palabras6.add(palabrasClaves.get(4));
-                
+
         Publicacion publicacion6 = new Publicacion("Título 1", mg6, fecha6, tipos.get(4), idiomas.get(3), lugares.get(3), palabras6, "Enlace 5", "Resumen 5"); //título repetido
         //PUBLICACION 6
-        
-        if (!publicaciones.contains(publicacion1))
+//        
+       if (!publicaciones.contains(publicacion1))
             publicaciones.add(publicacion1);
         if (!publicaciones.contains(publicacion2))
             publicaciones.add(publicacion2);
@@ -356,8 +357,8 @@ public class ControladorPrincipal {
         if (!publicaciones.contains(publicacion6))
             publicaciones.add(publicacion6);
 //      
-        for(Publicacion p : publicaciones) {
-            p.mostrartodo();
+   for(Publicacion p : publicaciones) {
+            p.mostrar();
             System.out.println();
         }
 
